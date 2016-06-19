@@ -90,9 +90,9 @@ class Paginator(object):
         
         top = bottom + self.per_page
         if top + self.orphans >= self.count: # 假设最后一页能够显示orphans个item，判断item的总数目count与
-        									 # 满足该假设所需要的item的数目，一旦count<=top+orphans，则说明
-        									 # 实际的item数目在最后一页显示的数目是不会大于orphans的，这种情况下，
-        									 # 最后一页就要被舍弃，则当前页显示的item为object_list[bottom:top]
+        				     # 满足该假设所需要的item的数目，一旦count<=top+orphans，则说明
+        				     # 实际的item数目在最后一页显示的数目是不会大于orphans的，这种情况下，
+        				     # 最后一页就要被舍弃，则当前页显示的item为object_list[bottom:top]
             top = self.count
         
         # return Page(object_list[bottom:top], number, 当前Paginator对象的引用)
@@ -137,8 +137,8 @@ class Paginator(object):
             	此时最后一页是已经要被舍弃的了（最后一页的项目会添加到前一页中去）。
             	判断显示item需要页数的重点就是（count-orphans）个item所需要的显示页数。因为最后一页已经是不存在的了，那么
             	显示（count-orphans）个item需要的页数，就是显示整个item需要的页数。
-				ceil(hits / float(self.per_page))：之差的结果/每页显示的最多的数量，并对此取整得到相应的值，
-				此算法的巧妙之处就在于先做了self.count-self.orphans的运算。
+		ceil(hits / float(self.per_page))：之差的结果/每页显示的最多的数量，并对此取整得到相应的值，
+		此算法的巧妙之处就在于先做了self.count-self.orphans的运算。
             	'''
                 hits = max(1, self.count - self.orphans)
                 self._num_pages = int(ceil(hits / float(self.per_page)))

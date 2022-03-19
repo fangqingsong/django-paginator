@@ -3,6 +3,7 @@
 
 import collections
 from math import ceil
+from django.utils import six 
 
 """ 
 	ceil(...): ceil(x)
@@ -14,7 +15,7 @@ from math import ceil
 """
 
 # django.utils.six - Utilities for writing code that runs on Python 2 and 3
-from django.utils import six 
+# from django.utils import six 
 
 """
 	分别定义了InvalidPage, PageNotAnInteger, EmptyPage三个异常类型。
